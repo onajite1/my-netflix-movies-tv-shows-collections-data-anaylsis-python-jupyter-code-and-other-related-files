@@ -1,0 +1,40 @@
+#FIRST OF ALL INSTALL THE FOLLWING LIBRARIES BEFORE IMPORTING
+## pip install pandas
+## pip install openpyxl
+## pip install plotly
+## pip install nbformat
+
+import pandas as pd
+Netflix = pd.read_excel("netflix_titles.xlsx")
+Netflix
+pd.set_option("display.max_rows", None )
+Netflix
+Netflix.describe()
+Netflix.columns
+Netflix["type"].unique()
+#Netflix["title"] == "title"
+Netflix["title"].describe()
+Netflix.duplicated().count()
+Netflix.head()
+Netflix.count()
+Netflix.fillna("-")
+Netflix["director"].describe()
+import plotly.express as px ##Aliasing
+#px.histogram(Nextflix, x ="director")
+#Netflix = pd.read_excel("netflix_titles.xlsx")
+px.histogram(Netflix, x = "director")
+Netflix["country"].describe()
+Netflix["date_added"].describe()
+px.histogram(Netflix, x ="date_added")
+Netflix["release_year"].describe()
+px.histogram(Netflix, x = "release_year" )
+Netflix.columns
+Netflix["listed_in"].describe()
+px.histogram(Netflix, x ="listed_in")
+Netflix["duration"].describe()
+px.histogram(Netflix, x ="duration")
+Netflix["type"].describe()
+Netflix["type"].unique()
+px.histogram(Netflix, x ="type")
+Netflix.groupby("director")["country"].count().reset_index()
+Netflix[Netflix["director"] == "Rajiv Chilaka"]
